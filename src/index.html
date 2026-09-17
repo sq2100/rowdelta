@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!--POLICY-->
+    <title>RowDelta — Compare CSV exports by a key column</title>
+    <meta
+      name="description"
+      content="Compare CSV exports by a key column. Catch additions, removals and cell changes without uploading your data."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2325615c'/%3E%3Ctext x='32' y='44' font-size='39' text-anchor='middle' fill='white' font-family='Arial'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <!--STYLE-->
+  </head>
+  <body>
+    <header>
+      <a href="#" class="brand"
+        ><span class="brandmark" aria-hidden="true">≠</span>RowDelta</a
+      >
+      <nav class="nav">
+        <button class="text-button desktop" id="privacy">Local & private</button
+        ><a
+          href="https://github.com/UTokyo2026/rowdelta/blob/main/README.zh-CN.md"
+          target="_blank"
+          rel="noreferrer"
+          >中文说明</a
+        ><a
+          href="https://github.com/UTokyo2026/rowdelta"
+          target="_blank"
+          rel="noreferrer"
+          >GitHub ↗</a
+        >
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">DATA / WITHOUT THE GUESSWORK</p>
+          <h1>Your rows changed.<br />See exactly how.</h1>
+          <p class="intro">
+            Compare CSV exports by a key column. Catch additions, removals and
+            cell changes without uploading your data.
+          </p>
+        </div>
+        <div class="hero-note" aria-hidden="true">
+          <strong>≠</strong><span>LOCAL BY DESIGN</span>
+        </div>
+      </section>
+      <section class="workbench" aria-label="RowDelta workspace">
+        <div class="workbar">
+          <span>01 / YOUR WORKSPACE</span
+          ><button id="demo" class="text-button">Try an example ↗</button>
+        </div>
+        <div class="grid">
+          <div class="pane">
+            <div class="labelrow">
+              <label for="left">A / Before CSV</label
+              ><label class="file-button"
+                >Open file<input type="file" id="file-left" hidden
+              /></label>
+            </div>
+            <textarea
+              id="left"
+              spellcheck="false"
+              placeholder="Paste a / before csv here…"
+            ></textarea>
+          </div>
+          <div class="pane">
+            <div class="labelrow">
+              <label for="right">B / After CSV</label
+              ><label class="file-button"
+                >Open file<input type="file" id="file-right" hidden
+              /></label>
+            </div>
+            <textarea
+              id="right"
+              spellcheck="false"
+              placeholder="Paste b / after csv here…"
+            ></textarea>
+          </div>
+        </div>
+        <div class="grid" style="padding-top: 0; padding-bottom: 0">
+          <label class="field"
+            ><span>Unique key column</span
+            ><input id="key" type="text" value="id" /></label
+          ><label class="field"
+            ><span>Delimiter</span
+            ><select id="delimiter">
+              <option value=",">Comma</option>
+              <option value=";">Semicolon</option>
+              <option value="tab">Tab</option>
+            </select></label
+          >
+        </div>
+        <div class="actions">
+          <p class="hint">
+            No uploads. No account. No changes to your source files.
+          </p>
+          <div class="group">
+            <button id="run" class="primary">Compare rows →</button>
+          </div>
+        </div>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="results">
+        <div class="result-head">
+          <h2>02 / Your result</h2>
+          <div class="group">
+            <button id="export" data-export disabled>Download changes ↓</button>
+          </div>
+        </div>
+        <div id="stats" class="stats"></div>
+        <label class="field"
+          ><span>Show</span
+          ><select id="filter">
+            <option value="changes">Changes only</option>
+            <option value="all">All keys</option>
+          </select></label
+        >
+        <div id="output">
+          <div class="empty">
+            Your results will appear here.<br />Try the example to see what this
+            tool can do.
+          </div>
+        </div>
+      </section>
+      <section class="guide">
+        <article>
+          <h3>
+            01 / Keyed comparison instead of fragile row-position matching
+          </h3>
+          <p>
+            Compare customer, inventory or signup exports using a stable ID.
+          </p>
+        </article>
+        <article>
+          <h3>02 / Quoted commas, line breaks and escaped quotes</h3>
+          <p>Everything is processed inside this browser tab.</p>
+        </article>
+        <article>
+          <h3>03 / Schema changes, duplicate-key checks and CSV export</h3>
+          <p>Take the result with you. No account or subscription required.</p>
+        </article>
+      </section>
+      <details class="details">
+        <summary>Scope, formats and limitations</summary>
+        <p>
+          CSV and TSV only; UTF-8 file imports up to 5 MiB each. Compares values
+          as exact strings, including whitespace. Empty physical lines are
+          ignored. A key must be nonempty and unique in both files; duplicate
+          keys stop the comparison. XLSX, formulas, fuzzy matching and compound
+          keys are not supported. Missing columns differ from empty cells. The
+          screen shows the first 500 rows; exports include every change.
+          Spreadsheet formula-like cells are prefixed with an apostrophe in CSV
+          reports.
+        </p>
+      </details>
+    </main>
+    <footer>
+      <span>RowDelta · A small tool for a real task.</span
+      ><span
+        ><a href="https://github.com/UTokyo2026/rowdelta">Open source</a> · MIT
+        · Works offline after download</span
+      >
+    </footer>
+    <dialog id="privacy-dialog">
+      <h2>Your data stays here.</h2>
+      <p>
+        Processing happens in this browser tab. This app has no analytics,
+        server processing, remote scripts or persistent app storage. Downloads
+        contain the data you choose to export.
+      </p>
+      <p>
+        A hosted page still exposes normal request metadata to its host.
+        Download the standalone HTML and open it offline for disconnected use.
+        Browser extensions and your device are outside the app’s control.
+      </p>
+      <button id="close-privacy">Got it</button>
+    </dialog>
+    <noscript>JavaScript is required for local processing.</noscript
+    ><!--SCRIPT-->
+  </body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "rowdelta",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Compare CSV exports by a key column. Catch additions, removals and cell changes without uploading your data.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "start": "node scripts/serve.mjs",
+    "format": "prettier --write src scripts tests"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "prettier": "3.8.1"
+  }
+}
