@@ -4,7 +4,7 @@
 
 Compare CSV exports by a key column. Catch additions, removals and cell changes without uploading your data.
 
-[Open the app](https://utokyo2026.github.io/rowdelta/) · [Download offline HTML](https://github.com/UTokyo2026/rowdelta/releases/latest) · [简体中文](README.zh-CN.md)
+[Open the app](https://sq2100.com/rowdelta/) · [Download offline HTML](https://github.com/sq2100/rowdelta/releases/latest) · [简体中文](README.zh-CN.md)
 
 ![RowDelta example](docs/demo.png)
 
@@ -20,7 +20,7 @@ No uploads, account, API key, tracking scripts, or runtime CDN dependencies. The
 
 ## Quick start
 
-Open the [hosted app](https://utokyo2026.github.io/rowdelta/) and click **Try an example**. Or download the HTML from [Releases](https://github.com/UTokyo2026/rowdelta/releases/latest), then open it in a modern desktop browser.
+Open the [hosted app](https://sq2100.com/rowdelta/) and click **Try an example**. Or download the HTML from [Releases](https://github.com/sq2100/rowdelta/releases/latest), then open it in a modern desktop browser.
 
 To build from source (Node.js 20.19+):
 

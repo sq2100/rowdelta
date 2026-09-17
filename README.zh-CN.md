@@ -2,7 +2,7 @@
 
 按主键比较 CSV，找出新增、删除与单元格变化。
 
-[在线使用](https://utokyo2026.github.io/rowdelta/) · [下载离线网页](https://github.com/UTokyo2026/rowdelta/releases/latest) · [完整英文说明](README.md)
+[在线使用](https://sq2100.com/rowdelta/) · [下载离线网页](https://github.com/sq2100/rowdelta/releases/latest) · [完整英文说明](README.md)
 
 ![演示界面](docs/demo.png)
 
